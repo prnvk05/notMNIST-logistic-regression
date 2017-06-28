@@ -5,7 +5,6 @@ import numpy as np
 import os
 import sys
 import tarfile
-from IPython.display import display, Image
 from scipy import ndimage
 from sklearn.linear_model import LogisticRegression
 from six.moves.urllib.request import urlretrieve
@@ -46,8 +45,8 @@ test_folders = maybe_extract('notMNIST_small.tar.gz')
 width = 28
 height = 28
 channels = 4
-#image = Image.open("notMNIST_small/A/Q0NXaWxkV29yZHMtQm9sZEl0YWxpYy50dGY=.png")
-#image.show()
+image = Image.open("notMNIST_small/A/Q0NXaWxkV29yZHMtQm9sZEl0YWxpYy50dGY=.png")
+image.show()
 image_size = 28  # Pixel width and height.
 pixel_depth = 255.0  # Number of levels per pixel.
 
@@ -134,9 +133,9 @@ def check_imgs(dataset):
       return size
   
 # verify that the dataset is balanced
-#x=check_imgs(test_datasets)
-#for k,v in x.items():
-#  print(k," : " ,v)
+x=check_imgs(test_datasets)
+for k,v in x.items():
+  print(k," : " ,v)
 
 def make_arrays(nb_rows, img_size):
   if nb_rows:
@@ -201,9 +200,9 @@ def randomize(dataset, labels):
 train_dataset, train_labels = randomize(train_dataset, train_labels)
 test_dataset, test_labels = randomize(test_dataset, test_labels)
 valid_dataset, valid_labels = randomize(valid_dataset, valid_labels)
-#_=check_imgs(train_dataset)
-#_=check_imgs(test_dataset)
-#_=check_imgs(valid_dataset)
+_=check_imgs(train_dataset)
+_=check_imgs(test_dataset)
+_=check_imgs(valid_dataset)
 
 def find_overlap(set1,set1_labels, set2, set2_labels):
 
